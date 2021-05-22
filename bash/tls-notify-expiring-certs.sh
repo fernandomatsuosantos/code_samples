@@ -2,7 +2,7 @@
 
 ######################################################################
 # Script Name    : tls-notify-expiring-certs.sh
-# Description    : Used to send notification via DataDog regarding certificates that will expire in 20 days
+# Description    : Used to send notification regarding certificates that will expire in 20 days
 # Args           : WEBSITE DD_CLIENT_API_KEY
 ######################################################################
 
@@ -24,7 +24,7 @@ else
     # Check whether the address of the website can be resolved
     host "$WEBSITE" >&-
     if [ "$?" -eq "0" ]; then
-        echo -n | timeout 5 openssl s_client -servername "$WEBSITE" -connect "$WEBSITE":443 2>/dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' >$CERT_FILE
+        echo -n | timeout 5 openssl s_client -servername "$WEBSITE" -connect "$WEBSITE":443 2>/dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > "$CERT_FILE"
         CERTIFICATE_SIZE=$(stat -c "%s" $CERT_FILE)
         if [ "$CERTIFICATE_SIZE" -gt "1" ]; then
             # Get the certificate expiration date
@@ -44,17 +44,17 @@ else
                 echo "WARNING: Oops! Certificate will expire in $DATE_DIFF days."
 
                 # Send alert to DATADOG
-                curl -X POST https://api.datadoghq.eu/api/v1/events?api_key=${DD_CLIENT_API_KEY} \
-                -H "Content-type: application/json" \
-                -d @- <<-EOF
-					{
-						"title": "TLS certificate about to expire!",
-						"text": "The TLS certificate of the URL ${WEBSITE} will expire in ${DATE_DIFF} days.",
-						"priority": "normal",
-						"alert_type": "warning",
-						"tags": ["scope:infrastructure","type:maintenance","website:${WEBSITE}","date_diff:${DATE_DIFF}"]
-					}
-				EOF
+                # curl -X POST https://api.datadoghq.eu/api/v1/events?api_key=${DD_CLIENT_API_KEY} \
+                # -H "Content-type: application/json" \
+                # -d @- <<-EOF
+				# 	{
+				# 		"title": "TLS certificate about to expire!",
+				# 		"text": "The TLS certificate of the URL ${WEBSITE} will expire in ${DATE_DIFF} days.",
+				# 		"priority": "normal",
+				# 		"alert_type": "warning",
+				# 		"tags": ["scope:infrastructure","type:maintenance","website:${WEBSITE}","date_diff:${DATE_DIFF}"]
+				# 	}
+				# EOF
             else
                 echo "INFO: Nothing to worry about. TLS certificate will expire only in $DATE_DIFF days from now."
             fi
