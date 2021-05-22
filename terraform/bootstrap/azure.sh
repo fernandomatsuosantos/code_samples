@@ -32,8 +32,8 @@ if [[ ${storage_account_exists} == "true" ]]; then
         --location ${location} \
         --kind BlobStorage \
         --sku Standard_LRS \
-        --https-only $true \
-        --allow-blob-public-access $false \
+        --https-only true \
+        --allow-blob-public-access false \
         --min-tls-version TLS1_2
 fi
 
