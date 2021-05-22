@@ -2,7 +2,7 @@
 
 $servername = "mysql-server:3306";
 $username = "poc_user";
-$password = "123-PoC*456+";
+$password = "XXX";
 $dbname = "poc";
 	
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
