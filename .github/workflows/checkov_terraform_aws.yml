@@ -1,8 +1,6 @@
 name: checkov - AWS - Setup Infrastructure
 
-on:
-  push:
-  pull_request:
+on: [push, pull_request]
 
 jobs:
   terraform:
