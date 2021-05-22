@@ -1,0 +1,22 @@
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: main
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: ubuntu-20.04
+  steps:
+  - checkout: self
+  - task: CmdLine@2
+    displayName: Run Checkov tests
+    continueOnError: True
+    inputs:
+      script: docker run --volume $(System.DefaultWorkingDirectory)/terraform/aws/deployments/dev:/tf bridgecrew/checkov --directory /tf --output junitxml > $(System.DefaultWorkingDirectory)/Checkov-Report.xml
+  - task: PublishTestResults@2
+    displayName: Publish Checkov tests
+    inputs:
+      testResultsFiles: Checkov-Report.xml
+...

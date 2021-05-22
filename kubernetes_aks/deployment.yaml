@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+        app: httpd-app
+  template:
+    metadata:
+      labels:
+        app: httpd-app
+    spec:
+      containers:
+      - name: httpd-container
+        image: httpd
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          protocol: TCP
+  strategy:
+    type: Recreate

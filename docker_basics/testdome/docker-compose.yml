@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  mysql-server:
+    image: 'percona:8'
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123-PoC*456+789
+      MYSQL_DATABASE: poc
+      MYSQL_USER: poc_user
+      MYSQL_PASSWORD: 123-PoC*456+
+  httpd1-app:
+    image: 'httpd:latest'
+    ports:
+      - '8081:80'
+  httpd2-app:
+    image: 'nginx:latest'
+    ports:
+      - '8082:80'
+  nginx-server:
+    build: .
+    links:
+      - httpd1-app
+      - httpd2-app
+    ports:
+      - '80:80'

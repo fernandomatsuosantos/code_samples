@@ -1,0 +1,68 @@
+<!--
+# ----------------------------------
+# This is a Tweeter sample template
+# Code by Fernando Matsuo Santos
+# Date: 2016/04/11
+# ----------------------------------
+-->
+
+{% extends "layout.html" %}
+{% block body %}
+  <h2>Resumo</h2>
+  {% if g.user %}
+    <p>
+      Olá, {{ g.user.screen_name }}!<br><br>
+      Informe um CEP abaixo para buscar tweets com a cidade do CEP?
+    </p>
+    <form action="{{ url_for('search_cep') }}"  method=post>
+      <p>
+        <input type="text" name="cep" size="12" onkeypress="return isNumberKey(event)" maxlength="8">
+        <input type="submit" value="buscar tweets do cep!">
+      </p>
+    </form>
+
+    {% if results %}
+    <h3>Este é o resultado da pesquisa no twitter por #{{ city }}:</h3>
+    <ul>
+        {% for result in results.statuses %}
+        <li><a href="http://twitter.com/{{ result.user.screen_name
+            }}">{{ result.user.screen_name }}</a>: {{ result.text|urlize }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+    {% if tweets %}
+    <h3>Estes são os 5 ultimos Tweets da sua linha do tempo:</h3>
+    <ul>
+    {% for tweet in tweets %}
+      <li><a href="http://twitter.com/{{ tweet.user.screen_name
+        }}">{{ tweet.user.screen_name }}</a>: {{ tweet.text|urlize }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+  {% else %}
+    <p>
+      Faça login para acessar o sistema
+    </p>
+    <p>
+      <a href="{{ url_for('login') }}">ENTRAR NO TWITTER</a>
+    </p>
+  {% endif %}
+
+<script type="text/javascript">
+<!--
+function isNumberKey(evt) {
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode != 46 && charCode > 31
+      && (charCode < 48 || charCode > 57))
+        return false;
+
+    return true;
+}
+//-->
+</script>
+
+{% endblock %}
+
