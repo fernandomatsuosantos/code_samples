@@ -19,7 +19,7 @@ app.debug = True
 app.secret_key = 'development'
 mysql = MySQL()
 app.config['MYSQL_USER'] = 'magazine'
-app.config['MYSQL_PASSWORD'] = 'mag@fcama^2016#'
+app.config['MYSQL_PASSWORD'] = 'XXX'
 app.config['MYSQL_DB'] = 'fcamaramagazine'
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_PORT'] = 4417
@@ -45,7 +45,7 @@ def get_twitter_token():
         response = session['twitter_oauth']
         return response['oauth_token'], response['oauth_token_secret']
 
-# Verify user session 
+# Verify user session
 @app.before_request
 def before_request():
     g.user = None
@@ -64,7 +64,7 @@ def index():
             flash('Erro ao carregar Tweets da timeline.')
     return render_template('index.html', tweets=tweets)
 
-# Search CEP information 
+# Search CEP information
 @app.route('/cep', methods=['POST'])
 def search_cep():
 	if g.user is None:

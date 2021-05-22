@@ -30,13 +30,13 @@ urllib3.disable_warnings()
 #)
 
 # Set the variable to Twitter OAuth 2 endpoint
-oauth_url = 'https://api.twitter.com/oauth2/token' 
+oauth_url = 'https://api.twitter.com/oauth2/token'
 
 # Set the HTTP request headers, including twitter consumer key and secret
-http_headers={'Authorization': "Basic %s" % base64.b64encode("%s:%s" % (CONSUMER_KEY,CONSUMER_SECRET)), 'Content-Type': 'application/x-www-form-urlencoded'} 
+http_headers={'Authorization': "Basic %s" % base64.b64encode("%s:%s" % (CONSUMER_KEY,CONSUMER_SECRET)), 'Content-Type': 'application/x-www-form-urlencoded'}
 
 # Set the payload and get client credentials
-request_body="grant_type=client_credentials" 
+request_body="grant_type=client_credentials"
 
 # Send the request
 response = pool_manager.urlopen("POST", oauth_url, headers=http_headers, body=request_body)
