@@ -19,7 +19,7 @@ $query = "SELECT id,name,created_at FROM poc order by id desc";
 $stmt = $conn->query($query);
 
 foreach ($stmt as $row) {
-	echo $row['id'] . "<br>";
-	echo $row['name'] . "<br>";
-	echo $row['created_at'] . "<br>";
+	echo htmlspecialchars($row['id']) . "<br>";
+	echo htmlspecialchars($row['name']) . "<br>";
+	echo htmlspecialchars($row['created_at']) . "<br>";
 }
