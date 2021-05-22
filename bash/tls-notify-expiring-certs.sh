@@ -44,7 +44,7 @@ else
                 echo "WARNING: Oops! Certificate will expire in $DATE_DIFF days."
 
                 # Send alert to DATADOG
-                curl -X POST https://api.datadoghq.eu/api/v1/events?api_key=${DD_CLIENT_API_KEY} \
+                curl -X POST "https://api.datadoghq.eu/api/v1/events?api_key=$DD_CLIENT_API_KEY" \
                 -H "Content-type: application/json" \
                 -d @- <<-EOF
 					{
