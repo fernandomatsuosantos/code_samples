@@ -12,4 +12,4 @@ array=("$1")
 for i in ${array[@]}; do
 	let sum+=$i
 done
-echo $sum
+echo "$sum"
