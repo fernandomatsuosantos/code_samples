@@ -135,5 +135,5 @@ To output details to your terminal window in a specific format, add the -o (or -
 
 More information at:
 
-- <https://kubernetes.io/docs/reference/kubectl/cheatsheet/>  
-- <https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands>  
+-   <https://kubernetes.io/docs/reference/kubectl/cheatsheet/>  
+-   <https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands>  
