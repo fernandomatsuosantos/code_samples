@@ -123,7 +123,7 @@ kubectl get pods --all-namespaces | grep Evicted | awk '{print $2 " --namespace=
 
 To output details to your terminal window in a specific format, add the -o (or --output) flag to a supported kubectl command.
 | Output format | Description |
-\| --- \| --- \|
+| --- | --- |
 | -o=custom-columns=(spec) | Print a table using a comma separated list of custom columns |
 | -o=custom-columns-file=(filename) | Print a table using the custom columns template in the (filename) file |
 | -o=json | Output a JSON formatted API object |
