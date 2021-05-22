@@ -8,6 +8,7 @@ ENV TZ=America/Sao_Paulo
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get install -y php libapache2-mod-php php-mysql
 RUN apt-get clean
+RUN rm -rf /var/lib/apt/lists/*
 
 #ENTRYPOINT ["/usr/sbin/apache2", "-k", "start"]
 ENV APACHE_RUN_USER www-data
