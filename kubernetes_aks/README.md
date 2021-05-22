@@ -48,23 +48,23 @@ kubectl get pods --all-namespaces | grep Evicted | awk '{print $2 " --namespace=
 
 ### Pod
 
-| Description                      | Command                                                                                                                                        |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| List all pods                    | kubectl get pods                                                                                                                               |
-| List pods for all namespace      | kubectl get pods -all-namespaces                                                                                                               |
-| List all critical pods           | kubectl get -n kube-system pods -a                                                                                                             |
-| List pods with more information  | kubectl get pod -o wide                                                                                                                        |
-| List pods and output to YAML     | kubectl get pod -o yaml                                                                                                                        |
-| Get pod info                     | kubectl describe pod/(pod name)                                                                                                                |
-| List all pods with labels        | kubectl get pods --show-labels                                                                                                                 |
-| List running pods                | kubectl get pods --field-selector=status.phase=Running --all-namespaces                                                                        |
-| Watch pods                       | kubectl get pods -n (namespace) --watch                                                                                                        |
-| List pods and containers         | kubectl get pods --all-namespaces -o='custom-columns=PODS:.metadata.name,CONTAINERS:.spec.containers[*].name'                                  |
-| List pods, containers and images | kubectl get pods --all-namespaces -o='custom-columns=PODS:.metadata.name,CONTAINERS:.spec.containers[*].name,Images:.spec.containers[*].image' |
-| Scale out Deployment             | kubectl scale --replicas=3 ds (name)                                                                                                           |
-| Log file of pod                  | kubectl logs (pod)                                                                                                                             |
-| Log file of a previous pod       | kubectl logs (pod) --previous                                                                                                                  |
-| Tail logs of pod                 | kubectl logs -f (pod)                                                                                                                          |
+| Description                      | Command                                                                                                                                          |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| List all pods                    | kubectl get pods                                                                                                                                 |
+| List pods for all namespace      | kubectl get pods -all-namespaces                                                                                                                 |
+| List all critical pods           | kubectl get -n kube-system pods -a                                                                                                               |
+| List pods with more information  | kubectl get pod -o wide                                                                                                                          |
+| List pods and output to YAML     | kubectl get pod -o yaml                                                                                                                          |
+| Get pod info                     | kubectl describe pod/(pod name)                                                                                                                  |
+| List all pods with labels        | kubectl get pods --show-labels                                                                                                                   |
+| List running pods                | kubectl get pods --field-selector=status.phase=Running --all-namespaces                                                                          |
+| Watch pods                       | kubectl get pods -n (namespace) --watch                                                                                                          |
+| List pods and containers         | `kubectl get pods --all-namespaces -o='custom-columns=PODS:.metadata.name,CONTAINERS:.spec.containers[*].name'`                                  |
+| List pods, containers and images | `kubectl get pods --all-namespaces -o='custom-columns=PODS:.metadata.name,CONTAINERS:.spec.containers[*].name,Images:.spec.containers[*].image'` |
+| Scale out Deployment             | kubectl scale --replicas=3 ds (name)                                                                                                             |
+| Log file of pod                  | kubectl logs (pod)                                                                                                                               |
+| Log file of a previous pod       | kubectl logs (pod) --previous                                                                                                                    |
+| Tail logs of pod                 | kubectl logs -f (pod)                                                                                                                            |
 
 ### Resources Deletion
 
@@ -135,5 +135,5 @@ To output details to your terminal window in a specific format, add the -o (or -
 
 More information at:
 
--   <https://kubernetes.io/docs/reference/kubectl/cheatsheet/>
--   <https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands>
+- <https://kubernetes.io/docs/reference/kubectl/cheatsheet/>
+- <https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands>

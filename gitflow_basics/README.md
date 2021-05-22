@@ -2,7 +2,7 @@
 
 ![alt text](https://github.com/fernandomatsuosantos/code_samples/blob/main/gitflow_basics/simplified-gitflow-model.png?raw=true)
 
-### New Pull Request
+## New Pull Request
 
 ```bash
 # -----------------------------------
@@ -29,7 +29,7 @@ git push origin feature/JIRA-1234-feature-branch-description
 git checkout develop
 ```
 
-### Using stash:
+## Using stash:
 
 ```bash
 # Store your changes temporarily in the stash and removes them from the working directory
@@ -43,7 +43,7 @@ git stash apply
 git stash drop
 ```
 
-### Force Pull (Overwrite local changes):
+## Force Pull (Overwrite local changes):
 
 ```bash
 # Downloads the latest from remote without trying to merge or rebase anything
@@ -55,7 +55,7 @@ git reset --hard origin/develop
 git pull origin develop
 ```
 
-### Rebase (Resolve merge conflicts)
+## Rebase (Resolve merge conflicts)
 
 ```bash
 #Checkout to the feature branch
@@ -71,7 +71,7 @@ git commit -m "Fix merge conflicts"
 git push origin feature/JIRA-1234-feature-branch-description
 ```
 
-### Useful commands
+## Useful commands
 
 ```bash
 #Set Name & E-mail address at Git config
