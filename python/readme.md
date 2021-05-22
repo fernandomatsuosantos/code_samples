@@ -46,7 +46,7 @@ Reasons why I chose MicroFramework Flask:
 
 **Fourth night: 04/14/2016 to 04/15/2016**
 
-1.  API configured to respond to verbs ['GET', 'POST', 'PUT', 'DELETE']
+1.  API configured to respond to verbs ('GET', 'POST', 'PUT', 'DELETE')
 2.  Done frontend done in Python (Flask) with error handling
 3.  Configured API to respond on port 8086
 4.  After the EXTRA proposal (logs) = the log files are in the root with the extension .log
@@ -159,7 +159,7 @@ Razões pelo qual eu optei pelo MicroFramework Flask:
 
 **Quarta noite: 14/04/2016 para 15/04/2016**
 
-1.  API configurada para responder aos verbos ['GET', 'POST', 'PUT', 'DELETE']
+1.  API configurada para responder aos verbos ('GET', 'POST', 'PUT', 'DELETE')
 2.  Feito Frontend desacoplado em Python (Flask) com tratamento de erros
 3.  Configurado API para responder na porta 8086
 4.  Feito o a proposta EXTRA (logs) = os arquivos de log ficam na raiz com a extensão .log

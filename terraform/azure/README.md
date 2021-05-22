@@ -100,7 +100,7 @@ terraform plan
 terraform apply
 ```
 
-_Note: Creating an Azure AKS cluster can take up to 10/15 minutes._
+* Note: Creating an Azure AKS cluster can take up to 10/15 minutes.
 
 Configure kubeconfig
 
