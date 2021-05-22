@@ -1,16 +1,17 @@
 # Azure Terraform POC
-* Deploy Azure Kubernetes Service (AKS) 
-* Deploy PostgreSQL
+
+-   Deploy Azure Kubernetes Service (AKS) 
+-   Deploy PostgreSQL
 
 This repository contains HashiCorp Terraform configuration required to create resources at Azure.
 
 ## Prerequisites
 
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
-* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed.
-* HashiCorp [Terraform](https://terraform.io/downloads.html) installed.
-* Terraform version: `0.13.x`
-* [Azure Provider](https://www.terraform.io/docs/providers/azurerm/index.html) version: `2.34`
+-   [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
+-   [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed.
+-   HashiCorp [Terraform](https://terraform.io/downloads.html) installed.
+-   Terraform version: `0.13.x`
+-   [Azure Provider](https://www.terraform.io/docs/providers/azurerm/index.html) version: `2.34`
 
 ### Clone the Github repository
 
@@ -50,6 +51,7 @@ export ARM_TENANT_ID="TENANT_ID"
 export ARM_CLIENT_ID="CLIENT_ID"
 export ARM_CLIENT_SECRET="CLIENT_SECRET"
 ```
+
 Note: If you are using Windows replace "export" to "$ENV:" at powershell
 
 Run Terraform init and plan.
@@ -98,7 +100,7 @@ terraform plan
 terraform apply
 ```
 
-*Note: Creating an Azure AKS cluster can take up to 10/15 minutes.*
+_Note: Creating an Azure AKS cluster can take up to 10/15 minutes._
 
 Configure kubeconfig
 
@@ -126,6 +128,6 @@ aks-default-36958969-vmss000000   Ready    agent   7m22s   v1.17.11
 ## PostgreSQL
 
 A PostgreSQL database will be created and you can connect to the service using Dbeaver (for example)
-https://dbeaver.io/download/
+<https://dbeaver.io/download/>
 
 You can get the connection string at Azure portal.

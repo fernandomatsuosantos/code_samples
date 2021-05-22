@@ -1,8 +1,7 @@
-FROM ubuntu:latest
+FROM ubuntu:20.04
 
 # Update the repository sources list
 RUN apt-get update
-RUN apt-get -y upgrade
 
 # Install and run apache
 ENV TZ=America/Sao_Paulo

@@ -12,9 +12,14 @@ spec:
       labels:
         app: httpd-app
     spec:
+      securityContext:
+        runAsUser: 1001
       containers:
       - name: httpd-container
         image: httpd
+        resources:
+          limits:
+            memory: 256Mi
         imagePullPolicy: Always
         ports:
         - containerPort: 80

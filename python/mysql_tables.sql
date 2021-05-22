@@ -15,10 +15,10 @@
 -- Table structure for table `cities`
 --
 
-DROP TABLE IF EXISTS `cities`;
+DROP TABLE IF EXISTS cities;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cities` (
+CREATE TABLE cities (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `city` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)

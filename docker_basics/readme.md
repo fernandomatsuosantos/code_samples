@@ -2,15 +2,17 @@
 
 This POC will have the following objective:
 
-* Create a Dockerfile to install httpd from an ubuntu image
-* Create 2 images using yml file (docker-compose.yml)
-1. httpd from an ubuntu image (Dockerfile)
-2. MySql
+-   Create a Dockerfile to install httpd from an ubuntu image
+-   Create 2 images using yml file (docker-compose.yml)
 
-*PS: httpd server will have a php file demonstrating how to access data connecting httpd to MySql*
+1.  httpd from an ubuntu image (Dockerfile)
+2.  MySql
+
+_PS: httpd server will have a php file demonstrating how to access data connecting httpd to MySql_
 
 ## Prerequisites
-* [Docker](https://www.docker.com/) installed.
+
+-   [Docker](https://www.docker.com/) installed.
 
 ### Clone the Github repository
 
@@ -20,20 +22,22 @@ git clone git@github.com:fernandomatsuosantos/code_samples.git
 
 ## Tutorial
 
-* Generate a container with httpd:
+-   Generate a container with httpd:
 
 ```bash
 docker build -t fms/apache:latest .
 docker run -d -p 8080:80
 ```
-Access: http://localhost:8080
 
-* Generate a container with httpd and another with MySql using yml:
+Access: <http://localhost:8080>
+
+-   Generate a container with httpd and another with MySql using yml:
+
 ```bash
 docker-compose up --build -d
 ```
-Access: http://localhost:8080
 
+Access: <http://localhost:8080>
 
 ## Useful commands
 

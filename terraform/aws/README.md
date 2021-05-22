@@ -1,15 +1,15 @@
 # AWS Terraform POC
-* Deploy AWS Config and services necessary to AWS Config (S3 bucket, policies, IAM rule)
-* Deploy Security Hub
-* Deploy GuardDuty
 
+-   Deploy AWS Config and services necessary to AWS Config (S3 bucket, policies, IAM rule)
+-   Deploy Security Hub
+-   Deploy GuardDuty
 
 This repository contains HashiCorp Terraform configuration required to create resources at AWS.
 
 ## Prerequisites
 
-* HashiCorp [Terraform](https://terraform.io/downloads.html) installed.
-* Terraform version: `0.15.x`
+-   HashiCorp [Terraform](https://terraform.io/downloads.html) installed.
+-   Terraform version: `0.15.x`
 
 ### Clone the Github repository
 
@@ -28,6 +28,7 @@ export AWS_ACCESS_KEY_ID="an-access-key"
 export AWS_SECRET_ACCESS_KEY="a-secret-key"
 export AWS_DEFAULT_REGION="us-east-1"
 ```
+
 Note: If you are using Windows replace "export" to "$ENV:" at powershell
 
 Run Terraform init and plan.
@@ -75,4 +76,4 @@ terraform plan
 terraform apply
 ```
 
-*The resources AWS Config, Security Hub and Deploy GuardDuty will be created at AWS.*
+_The resources AWS Config, Security Hub and Deploy GuardDuty will be created at AWS._

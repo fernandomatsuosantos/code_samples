@@ -1,8 +1,9 @@
 # GitFlow - Basics
+
 ![alt text](https://github.com/fernandomatsuosantos/code_samples/blob/main/gitflow_basics/simplified-gitflow-model.png?raw=true)
 
-
 ### New Pull Request
+
 ```bash
 # -----------------------------------
 # Create a branch from the latest commit on develop
@@ -29,6 +30,7 @@ git checkout develop
 ```
 
 ### Using stash:
+
 ```bash
 # Store your changes temporarily in the stash and removes them from the working directory
 git stash
@@ -42,6 +44,7 @@ git stash drop
 ```
 
 ### Force Pull (Overwrite local changes):
+
 ```bash
 # Downloads the latest from remote without trying to merge or rebase anything
 git fetch --all
@@ -53,6 +56,7 @@ git pull origin develop
 ```
 
 ### Rebase (Resolve merge conflicts)
+
 ```bash
 #Checkout to the feature branch
 git checkout feature/JIRA-1234-feature-branch-description
@@ -68,6 +72,7 @@ git push origin feature/JIRA-1234-feature-branch-description
 ```
 
 ### Useful commands
+
 ```bash
 #Set Name & E-mail address at Git config
 git config --global user.name "fernando"
