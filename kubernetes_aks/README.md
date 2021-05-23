@@ -1,7 +1,7 @@
 ## Kubernets (AKS)
 
 ```bash
-kubectl create poc
+kubectl create namespace poc
 ```
 
 | Description | Command                                          |
