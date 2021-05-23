@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+  mysql-server:
+    image: 'mysql'
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: XXX
+      MYSQL_DATABASE: poc
+      MYSQL_USER: poc_user
+      MYSQL_PASSWORD: XXX
+  httpd-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: always
+    ports:
+      - '8080:80'
+    volumes:
+      - ./public-php:/var/www/site/app

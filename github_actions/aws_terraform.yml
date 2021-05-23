@@ -1,0 +1,57 @@
+name: Terraform
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  terraform:
+    name: Setup Infrastructure
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: terraform/deployments/prod
+    env:
+      backend-config-bucket: brinks-terraform-tfstate
+      backend-config-key: terraform-prod.tfstate
+      backend-config-region: us-east-1
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: 0.15.3
+
+    - name: Verify Terraform version
+      id: version
+      run: terraform --version
+
+    - name: Terraform Format
+      id: format
+      run: terraform fmt -check
+
+    - name: Terraform init
+      id: init
+      run: terraform init -input=false -backend-config=bucket="${{ env.backend-config-bucket }}" -backend-config=key="${{ env.backend-config-key }}" -backend-config=region="${{ env.backend-config-region }}" -backend-config=access_key="${{ secrets.aws_access_key_id }}" -backend-config=secret_key="${{ secrets.aws_secret_access_key }}"
+
+    - name: Terraform validation
+      id: validation
+      run: terraform validate
+
+    - name: Terraform plan
+      id: plan
+      run: terraform plan -var "access_key=${{ secrets.aws_access_key_id }}" -var "secret_key=${{ secrets.aws_secret_access_key }}"
+      continue-on-error: true
+
+    # - name: Terraform plan status
+    #   if: steps.plan.outcome == 'failure'
+    #   run: exit 1
+
+    # - name: Terraform Apply
+    #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    #   run: terraform apply -auto-approve -var "access_key=${{ secrets.aws_access_key_id }}" -var "secret_key=${{ secrets.aws_secret_access_key }}"
+
+

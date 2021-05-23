@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deployment
+  namespace: poc
+  annotations:
+    seccomp.security.alpha.kubernetes.io/pod: "docker/default"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: httpd-app
+  template:
+    metadata:
+      labels:
+        app: httpd-app
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: httpd-container
+          image: httpd
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+  strategy:
+    type: Recreate

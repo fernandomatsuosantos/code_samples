@@ -1,0 +1,35 @@
+<!--
+# ----------------------------------
+# This is a Tweeter sample template
+# Code by Fernando Matsuo Santos
+# Date: 2016/04/11
+# ----------------------------------
+-->
+
+<!doctype html>
+
+<head>
+    <title>{% block title %}RESTful{% endblock %} | Exemplo de comunicação RESTful</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body>
+
+<h1>Exemplo de comunicação RESTful</h1>
+<ul class=navigation>
+  <li><a href="{{ url_for('index') }}">Pagina Inicial</a></li>
+  {% if g.user %}
+  <li><a href="{{ url_for('logout') }}">Sair - (usuário {{ g.user.screen_name}})</a></li>
+  {% else %}
+  <li><a href="{{ url_for('login') }}">Fazer log-in</a></li>
+  {% endif %}
+</ul>
+
+{% for message in get_flashed_messages() %}
+  <p class="message">{{ message }}</p>
+{% endfor %}
+
+{% block body %}{% endblock %}
+</body>
+</html>

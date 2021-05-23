@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: httpd-service
+  namespace: poc
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    name: http-port
+  selector:
+    app: httpd-app
+  sessionAffinity: None
+  type: LoadBalancer
+  #ClusterIP (Internal access) — for access only within the Kubernetes cluster
+  #NodePort (External Access) — access using IP and port of the Kubernetes Node itself - only for dev
+  #LoadBalancer (External Access) — an external load balancer (generally cloud provider specific) is used e.g. an Azure Load Balancer in AKS
+  #ExternalName — maps a Service to an external DNS name
+status:
+  loadBalancer: {}
