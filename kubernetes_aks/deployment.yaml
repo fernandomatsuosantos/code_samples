@@ -21,7 +21,7 @@ spec:
           image: httpd
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080
+            - containerPort: 80
               protocol: TCP
   strategy:
     type: Recreate
