@@ -1,5 +1,7 @@
 # How to, proof of concepts and documents
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a08cc33d2e654ea498006ad4f007627a)](https://app.codacy.com/gh/fernandomatsuosantos/code_samples?utm_source=github.com&utm_medium=referral&utm_content=fernandomatsuosantos/code_samples&utm_campaign=Badge_Grade_Settings)
+
 | Folder                 | Description                                                                                      | Created at |
 | ---------------------- | ------------------------------------------------------------------------------------------------ | ---------- |
 | azure_devops/pipelines | • A simple pipeline to deploy terraform code at AWS<br> • A simple pipeline to run Checkov tests | 2021       |
