@@ -104,17 +104,15 @@ terraform apply
 
 Configure kubeconfig
 
-Instructions can be obtained by running the following command
-
-```bash
-terraform output configure
-
 Run the following commands to configure kubernetes client:
 
+```bash
 $ az aks get-credentials --resource-group $(terraform output -raw resource_group_name) --name $(terraform output -raw kubernetes_cluster_name)
+```
 
-Test configuration using kubectl
+Test configuration using kubectl:
 
+```bash
 $ kubectl get nodes
 ```
 
