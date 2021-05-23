@@ -18,7 +18,14 @@ spec:
       automountServiceAccountToken: false
       containers:
         - name: httpd-container
-          image: httpd
+          image: httpd:2.4
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
           imagePullPolicy: Always
           ports:
             - containerPort: 80
