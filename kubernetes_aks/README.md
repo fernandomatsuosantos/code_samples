@@ -1,10 +1,14 @@
 ## Kubernets (AKS)
 
+```bash
+kubectl create poc
+```
+
 | Description | Command                                          |
 | ----------- | ------------------------------------------------ |
-| Deployment  | kubectl create -f deployment.yaml -n (namespace) |
-| Ingress     | kubectl create -f ingress.yaml -n (namespace)    |
-| Service     | kubectl create -f service.yaml -n (namespace)    |
+| Deployment  | kubectl create -f deployment.yaml |
+| Ingress     | kubectl create -f ingress.yaml    |
+| Service     | kubectl create -f service.yaml    |
 
 ### Some useful commands
 

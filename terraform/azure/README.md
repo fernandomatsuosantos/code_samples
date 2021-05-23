@@ -10,7 +10,7 @@ This repository contains HashiCorp Terraform configuration required to create re
 -   [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
 -   [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed.
 -   HashiCorp [Terraform](https://terraform.io/downloads.html) installed.
--   Terraform version: `0.13.x`
+-   Terraform version: `0.15.3`
 -   [Azure Provider](https://www.terraform.io/docs/providers/azurerm/index.html) version: `2.34`
 
 ### Clone the Github repository
@@ -111,9 +111,7 @@ terraform output configure
 
 Run the following commands to configure kubernetes client:
 
-$ terraform output kube_config > ~/.kube/aksconfig
-$ export KUBECONFIG=~/.kube/aksconfig
-Note: If you are using Windows replace "export" to "$ENV:" at powershell
+$ az aks get-credentials --resource-group $(terraform output -raw resource_group_name) --name $(terraform output -raw kubernetes_cluster_name)
 
 Test configuration using kubectl
 
