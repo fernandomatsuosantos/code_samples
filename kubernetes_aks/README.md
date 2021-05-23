@@ -1,11 +1,26 @@
-## Kubernets (AKS)
+# Kubernets (AKS)
+
+## Running an application after spin up an AKS cluster
 
 ```bash
-kubectl create namespace poc
+# Create the namespace poc to run nginx
+kubectl create namespace infrastructure --dry-run=client -o yaml | kubectl apply -f -
+
+# Use helm to install NGINX
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm upgrade --install nginx-ingress ingress-nginx/ingress-nginx --namespace infrastructure -f internal-ingress.yaml --set controller.replicaCount=2
+
+# Create the namespace poc and does not return error if it already exists
+kubectl create namespace poc --dry-run=client -o yaml | kubectl apply -f -
+
+# run httpd at AKS
+kubectl create -f deployment.yaml
+kubectl create -f service.yaml
+kubectl create -f ingress.yaml
 ```
 
-| Description | Command                                          |
-| ----------- | ------------------------------------------------ |
+| Description | Command                           |
+| ----------- | --------------------------------- |
 | Deployment  | kubectl create -f deployment.yaml |
 | Ingress     | kubectl create -f ingress.yaml    |
 | Service     | kubectl create -f service.yaml    |
@@ -139,5 +154,5 @@ To output details to your terminal window in a specific format, add the -o (or -
 
 More information at:
 
--   <https://kubernetes.io/docs/reference/kubectl/cheatsheet/>  
--   <https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands>  
+- <https://kubernetes.io/docs/reference/kubectl/cheatsheet/>
+- <https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands>

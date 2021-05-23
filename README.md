@@ -13,3 +13,5 @@
 
 Linkedin:
 <https://www.linkedin.com/in/fernandoms/>
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9444955866d84c458635a75f2f2903af)](https://www.codacy.com/gh/fernandomatsuosantos/code_samples/dashboard?utm_source=github.com&utm_medium=referral&utm_content=fernandomatsuosantos/code_samples&utm_campaign=Badge_Grade)

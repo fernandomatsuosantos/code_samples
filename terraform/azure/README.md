@@ -1,17 +1,19 @@
 # Azure Terraform POC
 
--   Deploy Azure Kubernetes Service (AKS) 
--   Deploy PostgreSQL
+- Deploy Azure Kubernetes Service (AKS)
+- Deploy Application Gateway and Web Application Firewall
+- Create a WAF policy
+- Deploy PostgreSQL
 
 This repository contains HashiCorp Terraform configuration required to create resources at Azure.
 
 ## Prerequisites
 
--   [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
--   [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed.
--   HashiCorp [Terraform](https://terraform.io/downloads.html) installed.
--   Terraform version: `0.15.3`
--   [Azure Provider](https://www.terraform.io/docs/providers/azurerm/index.html) version: `2.34`
+- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed.
+- HashiCorp [Terraform](https://terraform.io/downloads.html) installed.
+- Terraform version: `0.15.3`
+- [Azure Provider](https://www.terraform.io/docs/providers/azurerm/index.html) version: `2.34`
 
 ### Clone the Github repository
 
@@ -100,7 +102,7 @@ terraform plan
 terraform apply
 ```
 
--   Note: Creating an Azure AKS cluster can take up to 10/15 minutes.  
+- Note: Creating an Azure AKS cluster can take up to 10/15 minutes.
 
 Configure kubeconfig
 
@@ -120,6 +122,8 @@ $ kubectl get nodes
 NAME                              STATUS   ROLES   AGE     VERSION
 aks-default-36958969-vmss000000   Ready    agent   7m22s   v1.17.11
 ```
+
+_To spin up an application in the AKS ckeck the kubernetes_aks folder._
 
 ## PostgreSQL
 

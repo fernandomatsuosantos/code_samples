@@ -1,0 +1,6 @@
+# https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml
+controller:
+  service:
+    loadBalancerIP: 10.1.127.254
+    annotations:
+      service.beta.kubernetes.io/azure-load-balancer-internal: "true"
