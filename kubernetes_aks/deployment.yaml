@@ -28,12 +28,5 @@ spec:
           ports:
             - containerPort: 80
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /healthz
-              port: 8080
-              httpHeaders:
-                - name: livenessProbe
-                  value: OK
   strategy:
     type: Recreate
