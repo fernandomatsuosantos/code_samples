@@ -1,30 +1,3 @@
-# Docker POC
-
-This POC will create 3 dockers:
-
--   nginx load-balancer
--   httpd web server
--   nginx web server
-
-The nginx will act as a load balancer routing the traffic between httpd web server and nginx web server
-
-## Prerequisites
-
--   [Docker](https://www.docker.com/) installed.
-
-## Tutorial
-
-```bash
-docker-compose up --build
-```
-
-Access: <http://localhost>
-
-_Every time you refresh the page the access will switch between httpd and nginx, so you will see a page with the following content:_
-
--   It works! (httpd)
--   Welcome to nginx! (nginx)
-
 ## Install Docker - Ubuntu
 
 ```bash
@@ -79,26 +52,13 @@ docker ps
 #List all created containers (stopped)
 docker ps --all
 
-#Stop all containers
-docker stop $(docker ps -a -q)
-
-#Remove all images
-docker rm $(docker ps -a -q)
-
-#Delete all containers/networks/images/cache
-docker system prune
-
 #Get logs from a container
 docker logs <container id>
-
-#Create image using Dockerfile
-#tag pattern: <docker id>/<project name>:latest
-docker build -t fms/apache:latest . #-t=tag
 
 #docker build -t fms/apache:latest -f Dockerfile.dev . #another filename
 docker run -d -p 8080:80 <image name>
 # OR
-sudo docker run -d -p 8080:80 fms/apache
+docker run -d -p 80:80 httpd
 #-d option (short for --detach) causes the container to run in background
 #-p option (short for --publish) is needed in order to publish a container port (or a range of ports)
 #8080:80 = request port:container port
@@ -121,4 +81,13 @@ docker-compose down
 
 #List all running containers 
 docker-compose ps
+
+#Stop all containers
+docker stop $(docker ps -a -q)
+
+#Remove all images
+docker rm $(docker ps -a -q)
+
+#Delete all containers/networks/images/cache
+docker system prune
 ```
