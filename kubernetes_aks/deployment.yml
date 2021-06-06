@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deployment
+  namespace: poc
+  annotations:
+      checkov.io/skip1: CKV_K8S_23=Since this is just a demo this check will be ignored
+      checkov.io/skip2: CKV_K8S_29=Since this is just a demo this check will be ignored
+      checkov.io/skip3: CKV_K8S_31=Since this is just a demo this check will be ignored
+      checkov.io/skip4: CKV_K8S_40=Since this is just a demo this check will be ignored
+      checkov.io/skip5: CKV_K8S_28=Since this is just a demo this check will be ignored
+      checkov.io/skip6: CKV_K8S_8=Since this is just a demo this check will be ignored
+      checkov.io/skip7: CKV_K8S_37=Since this is just a demo this check will be ignored
+      checkov.io/skip8: CKV_K8S_30=Since this is just a demo this check will be ignored
+      checkov.io/skip9: CKV_K8S_9=Since this is just a demo this check will be ignored
+      checkov.io/skip10: CKV_K8S_43=Since this is just a demo this check will be ignored
+      checkov.io/skip11: CKV_K8S_22=Since this is just a demo this check will be ignored
+      checkov.io/skip12: CKV_K8S_20=Since this is just a demo this check will be ignored
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: httpd-app
+  template:
+    metadata:
+      labels:
+        app: httpd-app
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: httpd-container
+          image: httpd:2.4
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+  strategy:
+    type: Recreate

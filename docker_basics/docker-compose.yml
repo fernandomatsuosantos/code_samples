@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  httpd1-app:
+    image: 'httpd:latest'
+    ports:
+      - '8081:80'
+  httpd2-app:
+    image: 'nginx:latest'
+    ports:
+      - '8082:80'
+  nginx-server:
+    build: .
+    links:
+      - httpd1-app
+      - httpd2-app
+    ports:
+      - '80:80'
