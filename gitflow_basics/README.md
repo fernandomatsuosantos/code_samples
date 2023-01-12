@@ -111,3 +111,16 @@ git checkout --filename
 git fetch origin
 git reset --hard origin/develop
 ```
+
+## How to delete all local branches except main
+
+```bash
+#LINUX
+git branch | grep -v master | xargs git branch -D
+
+#WINDOWS
+FOR /f "tokens=*" %%G IN ('git branch ^| findstr /v master') DO git branch -D %%G
+
+#POWERSHELL
+git branch --format '%(refname:lstrip=2)' | Where-Object { $_ -ne 'master' } | ForEach-Object { git branch -D $_ }
+```
