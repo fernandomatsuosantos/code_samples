@@ -18,14 +18,14 @@ cd ScoutSuite/docker
 sudo docker-compose up --build
 
 # access container
-docker exec -it scoutsuite
+sudo docker exec -it scoutsuite
 
 # do the security check
 az login
 scout azure --all-subscriptions --cli --no-browser --report-dir /root/scout-report
 
 # copy report to local machine
-docker cp scoutsuite:/root/scout-report ./
+sudo docker cp scoutsuite:/root/scout-report ./
 ```
 
 -   [Scout Suite](https://github.com/nccgroup/ScoutSuite)
