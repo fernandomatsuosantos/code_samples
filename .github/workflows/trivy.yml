@@ -18,7 +18,7 @@ jobs:
         uses: aquasecurity/trivy-action@0.20.0
         with:
           scan-type: 'config'
-          hide-progress: true
+          hide-progress: false
           format: 'sarif'
           output: 'trivy-results.sarif'
           exit-code: '1'
