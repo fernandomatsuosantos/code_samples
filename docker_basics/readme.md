@@ -28,7 +28,8 @@ sudo usermod -aG docker $USER #optional
 docker version
 
 #Run container and command = docker run <image name> <command>
-docker run -it catthehacker/ubuntu:act-latest bash 
+docker run -it catthehacker/ubuntu:act-latest bash
+docker run -it catthehacker/ubuntu:full-latest bash
 #it=allow input/output
 #docker run = docker create <image name> + docker start <container id>
 
