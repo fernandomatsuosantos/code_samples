@@ -29,9 +29,13 @@ docker version
 
 #Run container and command = docker run <image name> <command>
 docker run -it catthehacker/ubuntu:act-latest bash
-docker run -it catthehacker/ubuntu:full-latest bash
+docker run -it catthehacker/ubuntu:full-latest bash # big image
 #it=allow input/output
 #docker run = docker create <image name> + docker start <container id>
+
+#Run container/command/shared_volume = docker run <image name> <command>
+docker run -it -v $(pwd):/shared_volume catthehacker/ubuntu:act-latest bash
+#volume = <local>:<docker>
 
 #Runs command in a existing container
 docker exec -it <container id> bash #or docker exec -it <container id> sh
